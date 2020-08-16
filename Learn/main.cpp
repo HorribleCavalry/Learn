@@ -1,30 +1,32 @@
 ﻿#include <iostream>
-#include <cstdlib>
+#include <limits>
 
-double hmean(double a, double b);
+bool hmean(double a, double b, double* ans);
 
 int main()
 {
 	double x, y, z;
-
-	std::cout << "Enter two numbers: " << std::endl;
 	while (true)
 	{
-		std::cin >> x >> y;
-		z = hmean(x, y);
-		std::cout << "Harmonic mean of " << x << " and " << y << " is " << z << std::endl;
+		std::cout << "Enter two numbers: " << std::endl;
+		std::cin >> x;
+		std::cin >> y;
+		if (hmean(x, y, &z))
+		{
+			std::cout << "Harmonic mean of " << x << " and " << y << " is " << z << std::endl;
+		}
+		else
+		{
+			std::cout << "One value should not be the negative of the other -  try again.\n";
+		}
 		std::cout << "Enter next set of numbers <q to quit>: ";
 	}
 	std::cout << "Bye!\n";
 	return 0;
 }
 
-double hmean(double a, double b)
+bool hmean(double a, double b, double * ans)
 {
-	if (a==-b)
-	{
-		std::cout << "untenable arguments to hmean" << std::endl;
-		std::abort();
-	}
-	return 2.0f*a*b / (a + b);
+	(*ans) = a == -b ? std::numeric_limits<double>::max() : 2.0*a*b / (a + b);
+	return !(a==-b);
 }
