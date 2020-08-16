@@ -5,6 +5,31 @@
 #include <cmath>
 #include <thread>
 #include <string>
+#include <utility>
+
+
+class scoped_thread
+{
+	std::thread t;
+public:
+	explicit scoped_thread(std::thread _t)
+		:t(std::move(_t))
+	{
+		if (!t.joinable())
+		{
+			throw std::logic_error("No thread");
+		}
+	}
+	~scoped_thread()
+	{
+		t.join();
+	}
+
+	scoped_thread(scoped_thread const&) = delete;
+	scoped_thread& operator=(scoped_thread const&) = delete;
+
+
+};
 
 void some_function()
 {
