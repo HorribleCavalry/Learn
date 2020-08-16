@@ -220,6 +220,11 @@ void Useless::ShowData() const
 	}
 	std::cout << std::endl;
 }
+class C1
+{
+public:
+
+};
 
 int main()
 {
