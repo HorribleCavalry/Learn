@@ -18,6 +18,7 @@ struct func
 
 	void operator()()
 	{
+		std::cout << "Now called a func, it's referenced i is: " << i << std::endl;
 		for (unsigned j = 0; j < 10000; j++)
 		{
 			do_something(i);
@@ -26,7 +27,9 @@ struct func
 };
 
 void do_something_in_current_thread()
-{}
+{
+	std::cout << "Now called do_something_in_current_thread!" << std::endl;
+}
 
 void f()
 {
