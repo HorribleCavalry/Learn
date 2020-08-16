@@ -6,64 +6,36 @@
 #include <thread>
 #include <string>
 
-void open_document_and_display_gui(std::string const& filename)
+void some_function()
+{
+	static int n = 0;
+	std::cout << "some_function's n is: " << n << std::endl;
+	++n;
+}
+
+void some_other_function(int n)
 {
 
 }
 
-bool done_editing()
+std::thread f()
 {
-	return true;
+	//void some_function();
+	return std::thread(some_function);
 }
 
-enum command_type
+std::thread g()
 {
-	open_new_document
-};
-
-struct user_command
-{
-	command_type type;
-
-	user_command() : type(open_new_document) {}
-
-};
-
-user_command get_user_input()
-{
-	return user_command();
-}
-
-std::string get_filename_from_user()
-{
-	return "foo.doc";
-}
-
-void process_user_input(user_command const& cmd)
-{
-
-}
-
-void edit_document(std::string const& filename)
-{
-	open_document_and_display_gui(filename);
-	while (!done_editing())
-	{
-		user_command cmd = get_user_input();
-		if (cmd.type == open_new_document)
-		{
-			std::string const new_name = get_filename_from_user();
-			std::thread t(edit_document, new_name);
-			t.detach();
-		}
-		else
-		{
-			process_user_input(cmd);
-		}
-	}
+	//void some_other_function(int);
+	std::thread t(some_other_function, 42);
+	return t;
 }
 
 int main()
 {
-	edit_document("bar.doc");
+	std::thread t1 = f();
+	t1.join();
+
+	std::thread t2 = g();
+	t2.join();
 }
