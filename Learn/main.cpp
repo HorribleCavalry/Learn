@@ -5,6 +5,25 @@
 #include <cmath>
 #include <thread>
 
+class thread_guard
+{
+	std::thread& t;
+public:
+	//referenced parameter can not use constant perfixion.
+	explicit thread_guard(std::thread& _t) : t(_t) {}
+
+	~thread_guard()
+	{
+		if (t.joinable())
+		{
+			t.join();
+		}
+	}
+	thread_guard(thread_guard const&) = delete;
+	//thread_guard(thread_guard &&) = delete;
+	thread_guard& operator=(thread_guard const&) = delete;
+};
+
 void do_something(int& i)
 {
 	++i;
@@ -18,7 +37,6 @@ struct func
 
 	void operator()()
 	{
-		std::cout << "Now called a func, it's referenced i is: " << i << std::endl;
 		for (unsigned j = 0; j < 10000; j++)
 		{
 			do_something(i);
@@ -27,30 +45,15 @@ struct func
 };
 
 void do_something_in_current_thread()
-{
-	std::cout << "Now called do_something_in_current_thread!" << std::endl;
-}
-
-void f()
-{
-	int some_local_state = 0;
-	func my_func(some_local_state);
-	std::thread t(my_func);
-	try
-	{
-		do_something_in_current_thread();
-	}
-	catch (...)
-	{
-		t.join();
-		throw;
-	}
-	t.join();
-}
+{}
 
 int main()
 {
-	f();
+	int some_local_state;
+	func my_func(some_local_state);
+	std::thread t(my_func);
+	thread_guard g(t);
 
-	return 0;
+	do_something_in_current_thread();
+
 }
