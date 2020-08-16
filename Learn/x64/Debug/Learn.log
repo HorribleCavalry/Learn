@@ -1,5 +1,3 @@
 ﻿  main.cpp
-d:\gitspace\learn\learn\main.cpp(114): warning C4018: “<”: 有符号/无符号不匹配
-d:\gitspace\learn\learn\main.cpp(127): warning C4018: “<”: 有符号/无符号不匹配
-d:\gitspace\learn\learn\main.cpp(185): warning C4018: “<”: 有符号/无符号不匹配
+  LINK : 没有找到 D:\GitSpace\Learn\x64\Debug\Learn.exe 或上一个增量链接没有生成它；正在执行完全链接
   Learn.vcxproj -> D:\GitSpace\Learn\x64\Debug\Learn.exe
