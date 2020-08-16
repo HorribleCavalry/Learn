@@ -1,2 +1,3 @@
 ﻿  main.cpp
+d:\gitspace\learn\learn\main.cpp(37): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
   Learn.vcxproj -> D:\GitSpace\Learn\x64\Debug\Learn.exe

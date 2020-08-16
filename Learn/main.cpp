@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <limits>
 
-bool hmean(double a, double b, double* ans);
+double hmean(double a, double b);
 
 int main()
 {
@@ -11,22 +11,27 @@ int main()
 		std::cout << "Enter two numbers: " << std::endl;
 		std::cin >> x;
 		std::cin >> y;
-		if (hmean(x, y, &z))
+		
+		try
 		{
-			std::cout << "Harmonic mean of " << x << " and " << y << " is " << z << std::endl;
+			z = hmean(x, y);
 		}
-		else
+		catch (const std::exception& e)
 		{
-			std::cout << "One value should not be the negative of the other -  try again.\n";
+			std::cout << e.what() << std::endl;
+			std::cout << "Please enter a new pair of numbers: "<<std::endl;
+			continue;
 		}
-		std::cout << "Enter next set of numbers <q to quit>: ";
+		std::cout << "Harmonic mean of x and y is: " << z << std::endl;
 	}
+
 	std::cout << "Bye!\n";
 	return 0;
 }
 
-bool hmean(double a, double b, double * ans)
+double hmean(double a, double b)
 {
-	(*ans) = a == -b ? std::numeric_limits<double>::max() : 2.0*a*b / (a + b);
-	return !(a==-b);
+	if (a == -b);
+		throw ("Bad means.");
+	return 2.0*a*b / (a + b);
 }
