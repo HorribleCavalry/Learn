@@ -1,10 +1,12 @@
 ﻿#include <iostream>
 #include <limits>
-
+#include "exc_mean.h"
 double hmean(double a, double b);
+double gmean(double a, double b);
 
 int main()
 {
+	
 	double x, y, z;
 	while (true)
 	{
@@ -14,15 +16,21 @@ int main()
 		
 		try
 		{
-			z = hmean(x, y);
+			std::cout<<"The hmean is :"<< hmean(x, y)<< std::endl;
+			std::cout<<"The gmean is :"<< gmean(x, y)<< std::endl;
 		}
-		catch (const std::exception& e)
+		catch (bad_hmean& bh)
 		{
-			std::cout << e.what() << std::endl;
+			bh.mesg();
 			std::cout << "Please enter a new pair of numbers: "<<std::endl;
 			continue;
 		}
-		std::cout << "Harmonic mean of x and y is: " << z << std::endl;
+		catch (bad_gmean& bg)
+		{
+			bg.mesg();
+			std::cout << "Please enter a new pair of numbers: " << std::endl;
+			break;
+		}
 	}
 
 	std::cout << "Bye!\n";
@@ -31,7 +39,14 @@ int main()
 
 double hmean(double a, double b)
 {
-	if (a == -b);
-		throw ("Bad means.");
+	if (a == -b)
+		throw bad_hmean(a, b);
 	return 2.0*a*b / (a + b);
+}
+
+double gmean(double a, double b)
+{
+	if (a <0.0 || b <0.0)
+		throw bad_gmean(a, b);
+	return std::sqrt(a * b);
 }
