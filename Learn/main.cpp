@@ -25,42 +25,41 @@ public:
 		t.join();
 	}
 
+	scoped_thread() = delete;
 	scoped_thread(scoped_thread const&) = delete;
 	scoped_thread& operator=(scoped_thread const&) = delete;
 
-
 };
 
-void some_function()
+void do_something(int& i)
 {
-	static int n = 0;
-	std::cout << "some_function's n is: " << n << std::endl;
-	++n;
+	++i;
 }
 
-void some_other_function(int n)
+struct func
+{
+	int& i;
+	func(int& i_) :i(i_) {}
+	void operator()()
+	{
+		for (int j = 0; j < 1000; j++)
+		{
+			do_something(i);
+		}
+	}
+};
+void do_something_in_current_thread()
 {
 
 }
-
-std::thread f()
+void f()
 {
-	//void some_function();
-	return std::thread(some_function);
-}
-
-std::thread g()
-{
-	//void some_other_function(int);
-	std::thread t(some_other_function, 42);
-	return t;
+	int some_local_state = 0;
+	scoped_thread t(std::thread(func(some_local_state)));
+	do_something_in_current_thread();
 }
 
 int main()
 {
-	std::thread t1 = f();
-	t1.join();
-
-	std::thread t2 = g();
-	t2.join();
+	f();
 }
