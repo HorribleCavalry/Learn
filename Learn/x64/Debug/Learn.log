@@ -1,3 +1,11 @@
 ﻿  main.cpp
-  LINK : 没有找到 D:\GitSpace\Learn\x64\Debug\Learn.exe 或上一个增量链接没有生成它；正在执行完全链接
-  Learn.vcxproj -> D:\GitSpace\Learn\x64\Debug\Learn.exe
+d:\gitspace\learn\learn\main.cpp(9): error C2676: 二进制“[”:“__m256i”不定义该运算符或到预定义运算符可接收的类型的转换
+d:\gitspace\learn\learn\main.cpp(15): error C2660: “_mm256_set_epi32”: 函数不接受 7 个参数
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\immintrin.h(1153): note: 参见“_mm256_set_epi32”的声明
+d:\gitspace\learn\learn\main.cpp(17): error C3861: “aligned”: 找不到标识符
+d:\gitspace\learn\learn\main.cpp(17): error C3861: “__attribute__”: 找不到标识符
+d:\gitspace\learn\learn\main.cpp(17): error C2144: 语法错误:“int”的前面应有“;”
+d:\gitspace\learn\learn\main.cpp(20): error C2065: “__mm256i”: 未声明的标识符
+d:\gitspace\learn\learn\main.cpp(20): error C2146: 语法错误: 缺少“;”(在标识符“d2”的前面)
+d:\gitspace\learn\learn\main.cpp(20): error C2065: “d2”: 未声明的标识符
+d:\gitspace\learn\learn\main.cpp(21): error C2065: “d2”: 未声明的标识符
