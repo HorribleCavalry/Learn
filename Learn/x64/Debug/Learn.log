@@ -1,3 +1,39 @@
 ﻿  main.cpp
-  LINK : 没有找到 D:\GitSpace\Learn\x64\Debug\Learn.exe 或上一个增量链接没有生成它；正在执行完全链接
-  Learn.vcxproj -> D:\GitSpace\Learn\x64\Debug\Learn.exe
+d:\gitspace\learn\learn\main.cpp(13): error C2143: 语法错误: 缺少“)”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(13): error C2143: 语法错误: 缺少“;”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(13): error C2059: 语法错误:“this”
+d:\gitspace\learn\learn\main.cpp(13): error C2059: 语法错误:“)”
+d:\gitspace\learn\learn\main.cpp(14): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\gitspace\learn\learn\main.cpp(14): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+d:\gitspace\learn\learn\main.cpp(20): error C2143: 语法错误: 缺少“)”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(20): error C2143: 语法错误: 缺少“;”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(20): error C2059: 语法错误:“this”
+d:\gitspace\learn\learn\main.cpp(20): error C2059: 语法错误:“)”
+d:\gitspace\learn\learn\main.cpp(21): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\gitspace\learn\learn\main.cpp(21): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+d:\gitspace\learn\learn\main.cpp(39): error C2143: 语法错误: 缺少“)”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(39): error C2143: 语法错误: 缺少“;”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(39): error C2059: 语法错误:“this”
+d:\gitspace\learn\learn\main.cpp(39): error C2059: 语法错误:“)”
+d:\gitspace\learn\learn\main.cpp(40): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\gitspace\learn\learn\main.cpp(40): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+d:\gitspace\learn\learn\main.cpp(46): error C2143: 语法错误: 缺少“)”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(46): error C2143: 语法错误: 缺少“;”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(46): error C2059: 语法错误:“this”
+d:\gitspace\learn\learn\main.cpp(46): error C2059: 语法错误:“)”
+d:\gitspace\learn\learn\main.cpp(47): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\gitspace\learn\learn\main.cpp(47): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+d:\gitspace\learn\learn\main.cpp(64): error C2143: 语法错误: 缺少“)”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(64): error C2143: 语法错误: 缺少“;”(在“this”的前面)
+d:\gitspace\learn\learn\main.cpp(64): error C2059: 语法错误:“this”
+d:\gitspace\learn\learn\main.cpp(64): error C2059: 语法错误:“)”
+d:\gitspace\learn\learn\main.cpp(65): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\gitspace\learn\learn\main.cpp(65): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+d:\gitspace\learn\learn\main.cpp(75): error C2660: “Cat”: 函数不接受 2 个参数
+  d:\gitspace\learn\learn\main.cpp(39): note: 参见“Cat”的声明
+d:\gitspace\learn\learn\main.cpp(76): error C2660: “Cat”: 函数不接受 2 个参数
+  d:\gitspace\learn\learn\main.cpp(39): note: 参见“Cat”的声明
+d:\gitspace\learn\learn\main.cpp(79): error C2440: “初始化”: 无法从“cat *”转换为“animal *”
+  d:\gitspace\learn\learn\main.cpp(79): note: 与指向的类型无关；强制转换要求 reinterpret_cast、C 样式强制转换或函数样式强制转换
+d:\gitspace\learn\learn\main.cpp(79): error C2440: “初始化”: 无法从“dog *”转换为“animal *”
+  d:\gitspace\learn\learn\main.cpp(79): note: 与指向的类型无关；强制转换要求 reinterpret_cast、C 样式强制转换或函数样式强制转换
