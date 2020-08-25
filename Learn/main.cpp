@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 
+//Referenced: https://github.com/wuye9036/CppTemplateTutorial
+
 template<typename T>
 T Add(const T& a, const T& b)
 {
