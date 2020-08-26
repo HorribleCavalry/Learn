@@ -2,14 +2,19 @@
 
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
 
-template<typename SrcT, typename DesT>
-DesT c_style_cast(SrcT v)
+template<typename T, int Size>
+class Array
 {
-	return static_cast<DesT>(v);
-}
+public:
+
+	T data[Size];
+};
 
 int main()
 {
-	int v = 0;
-	float i = c_style_cast<int,float>(v);
+	Array<float, 32> arr;
+	int x = 32;
+
+	//This writting style is not allowed, because the "Size" must be determined in compile phase.
+	//Array<int, x> arrX;
 }
