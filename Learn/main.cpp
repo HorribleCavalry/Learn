@@ -2,19 +2,14 @@
 
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
 
-float data[1024];
-template<typename T>
-T GetValue(int i)
+template<typename SrcT, typename DesT>
+DesT c_style_cast(SrcT v)
 {
-	return static_cast<T>(data[i]);
+	return static_cast<DesT>(v);
 }
 
 int main()
 {
-	//The compiler can not identify the type of return value, so it is not allowed.
-	//float a = GetValue(0);
-	//int b = Getvalue(1);
-
-	float a = GetValue<float>(0);
-	int b = GetValue<int>(1);
+	int v = 0;
+	float i = c_style_cast<int,float>(v);
 }
