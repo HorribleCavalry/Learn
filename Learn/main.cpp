@@ -8,11 +8,20 @@ auto Add(T&& a, T&& b)
 	return a + b;
 }
 
+template<typename T>
+class A
+{
+
+};
+
+template<typename T>
+T foo(const A<T>& v)
+{
+	return T();
+}
+
 int main()
 {
-	int a = 5;
-	int b = 3;
-	//char b = 3; //It is not allowed.
-	auto result = Add(a, b);
-	std::cout << result;
+	A<int> v;
+	std::cout << foo(v);
 }
