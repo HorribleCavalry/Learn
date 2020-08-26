@@ -2,26 +2,19 @@
 
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
 
+float data[1024];
 template<typename T>
-auto Add(T&& a, T&& b)
+T GetValue(int i)
 {
-	return a + b;
-}
-
-template<typename T>
-class A
-{
-
-};
-
-template<typename T>
-T foo(const A<T>& v)
-{
-	return T();
+	return static_cast<T>(data[i]);
 }
 
 int main()
 {
-	A<int> v;
-	std::cout << foo(v);
+	//The compiler can not identify the type of return value, so it is not allowed.
+	//float a = GetValue(0);
+	//int b = Getvalue(1);
+
+	float a = GetValue<float>(0);
+	int b = GetValue<int>(1);
 }
