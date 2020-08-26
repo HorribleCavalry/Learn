@@ -11,8 +11,8 @@ auto Add(T&& a, T&& b)
 int main()
 {
 	int a = 5;
-	//int b = 3;
 	int b = 3;
+	//char b = 3; //It is not allowed.
 	auto result = Add(a, b);
 	std::cout << result;
 }
