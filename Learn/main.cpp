@@ -2,19 +2,50 @@
 
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
 
-template<typename T, int Size>
-class Array
+template<int i>
+class A
 {
 public:
+	static void foo(int i)
+	{
 
-	T data[Size];
+	}
 };
+
+template <uint8_t a, typename b, void* c>
+class B
+{
+
+};
+
+template<bool, void(*a)()>
+class C
+{
+
+};
+
+//This writting style is not allowed, because the member function inside class can not be used in template declaration.
+//template<void(A<3>::a*)()) > class D {};
+
+template<int i> int Add(int a)
+{
+	return a + i;
+}
+
+void foo()
+{
+	A<5> a;
+	B<7, A<5>, nullptr> b;
+	C < false, &foo> c;
+	//It can not run, this writing style is awful.
+	//D<A<3>::foo> d;
+	int x = Add < 3>(5);
+}
 
 int main()
 {
-	Array<float, 32> arr;
-	int x = 32;
 
-	//This writting style is not allowed, because the "Size" must be determined in compile phase.
-	//Array<int, x> arrX;
 }
+
+//This writting style is not allowed, beacause the <float> type in template is not allowed.
+//template <float a>class E {};
