@@ -1,5 +1,2 @@
 ﻿  main.cpp
-d:\gitspace\learn\learn\main.cpp(37): warning C4101: “a”: 未引用的局部变量
-d:\gitspace\learn\learn\main.cpp(38): warning C4101: “b”: 未引用的局部变量
-d:\gitspace\learn\learn\main.cpp(39): warning C4101: “c”: 未引用的局部变量
   Learn.vcxproj -> D:\GitSpace\Learn\x64\Debug\Learn.exe

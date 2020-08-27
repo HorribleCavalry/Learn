@@ -1,51 +1,38 @@
 ﻿#include <iostream>
-
+#include <cassert>
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
+//Part 2.22
 
-template<int i>
-class A
+//You can even customize overloaded classes based on templates.
+template<typename T>
+class AddFloatOrMulInt
+{
+//public:
+//	static T Do(T a, T b);
+};
+
+template<>
+class AddFloatOrMulInt<float>
 {
 public:
-	static void foo(int i)
+	static float Do(float a, float b)
 	{
-
+		return a + b;
 	}
 };
 
-template <uint8_t a, typename b, void* c>
-class B
+template<>
+class AddFloatOrMulInt<int>
 {
-
+public:
+	static int Do(int a, int b)
+	{
+		return a * b;
+	}
 };
-
-template<bool, void(*a)()>
-class C
-{
-
-};
-
-//This writting style is not allowed, because the member function inside class can not be used in template declaration.
-//template<void(A<3>::a*)()) > class D {};
-
-template<int i> int Add(int a)
-{
-	return a + i;
-}
-
-void foo()
-{
-	A<5> a;
-	B<7, A<5>, nullptr> b;
-	C < false, &foo> c;
-	//It can not run, this writing style is awful.
-	//D<A<3>::foo> d;
-	int x = Add < 3>(5);
-}
 
 int main()
 {
-
+	auto result0 = AddFloatOrMulInt<int>::Do(3, 2);
+	auto result1 = AddFloatOrMulInt<float>::Do(3.0, 2.0);
 }
-
-//This writting style is not allowed, beacause the <float> type in template is not allowed.
-//template <float a>class E {};
