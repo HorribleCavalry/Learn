@@ -1,30 +1,45 @@
 ﻿#include <iostream>
 #include <cassert>
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
-//Part 2.3.1
+//Part 2.2 Remove Pointer.
 
 template<typename T>
-struct X
+class TypeToId
+{
+public:
+	static const int id = 0;
+};
+
+template<>
+class TypeToId<float>
+{
+public:
+	static const int id = 1;
+};
+
+template<typename T>
+class TypeToId<T*>
+{
+public:
+	typedef T	SameAsT;
+	static const int id = 2;
+};
+
+template<typename T>
+class RemovePointer
 {
 
 };
 
 template<typename T>
-struct Y
+class RemovePointer<T*>
 {
-	typedef X<T> ReboundType;
-	typedef typename X<T>::MemberType MemberType;
-	typedef UnknownType MemberType3;
-	void foo()
-	{
-		X<T> instance0;
-		typename X<T>::MemberType instance1;
-		WTF instance2;
-		It is nothing.
-	}
+public:
+	typedef typename RemovePointer<T>::Tesult Tesult;
 };
 
 int main()
 {
-
+	RemovePointer<int**>::Tesult x;
+	auto testType = x;
 }
