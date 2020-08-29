@@ -1,5 +1,5 @@
 ﻿  main.cpp
-d:\gitspace\learn\learn\main.cpp(38): error C2039: “Tesult”: 不是“RemovePointer<T>”的成员
+d:\gitspace\learn\learn\main.cpp(38): error C2039: “TD”: 不是“RemovePointer<T>”的成员
           with
           [
               T=int
@@ -14,6 +14,6 @@ d:\gitspace\learn\learn\main.cpp(38): error C2039: “Tesult”: 不是“Remove
           [
               T=int *
           ]
-  d:\gitspace\learn\learn\main.cpp(43): note: 参见对正在编译的 类 模板 实例化 "RemovePointer<int **>" 的引用
-d:\gitspace\learn\learn\main.cpp(38): error C3646: “Tesult”: 未知重写说明符
+  d:\gitspace\learn\learn\main.cpp(50): note: 参见对正在编译的 类 模板 实例化 "RemovePointer<int **>" 的引用
+d:\gitspace\learn\learn\main.cpp(38): error C3646: “TD”: 未知重写说明符
 d:\gitspace\learn\learn\main.cpp(38): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int

@@ -35,11 +35,19 @@ template<typename T>
 class RemovePointer<T*>
 {
 public:
-	typedef typename RemovePointer<T>::Tesult Tesult;
+	typedef typename RemovePointer<T>::TD TD;
+};
+
+template<typename T>
+class AddPointer
+{
+public:
+	typedef T* TP;
 };
 
 int main()
 {
-	RemovePointer<int**>::Tesult x;
-	auto testType = x;
+	RemovePointer<int**>::TD x;
+	AddPointer<int**>::TP ptt;
+	//auto testType = x;
 }
