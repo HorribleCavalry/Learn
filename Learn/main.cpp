@@ -3,22 +3,40 @@
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
 //
 
-template<typename T>
-struct X
+struct A
 {
 
 };
-
-template<typename T>
-struct Y
+template<typename T> struct B
 {
-	typedef X<T> ReboundType;
-	//typename is used for identifing the back "MemberType" is a type instead of a variable.
-	typedef typename X<T>::MemberType MemberType2;
-	//typedef UnknownType MemberType3;
+	typedef T type;
+};
+template<typename T> struct X
+{
+	typedef X<T> _A;
+	typedef X _B;
+	typedef T _C;
+
+	class Y
+	{
+	public:
+		typedef X<T> _D;
+		typedef X<T>::Y _E;
+
+		typedef typename X<T*>::Y _F;
+	};
+
+	typedef A _G;
+	typedef B<T> _H;
+
+	typedef typename B<T>::type _I;
+	typedef B<int>::type _J;
 };
 
 int main()
 {
-
+	X<int> x;
+	//I really don't know what is _F.
+	X<int>::Y::_F v;
+	
 }

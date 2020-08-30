@@ -1,31 +1,4 @@
 ﻿  main.cpp
-d:\gitspace\learn\learn\main.cpp(76): warning C4244: “初始化”: 从“const T”转换到“int”，可能丢失数据
-          with
-          [
-              T=double
-          ]
-d:\gitspace\learn\learn\main.cpp(76): warning C4244: “初始化”: 从“const T”转换到“int”，可能丢失数据
-          with
-          [
-              T=double
-          ]
-d:\gitspace\learn\learn\main.cpp(92): error C2955: “vec2”: 使用 类 模板 需要 模板 参数列表
-  d:\gitspace\learn\learn\main.cpp(11): note: 参见“vec2”的声明
-d:\gitspace\learn\learn\main.cpp(91): error C2955: “vec2”: 使用 类 模板 需要 模板 参数列表
-  d:\gitspace\learn\learn\main.cpp(11): note: 参见“vec2”的声明
-  d:\gitspace\learn\learn\main.cpp(91): note: “vec2”: 函数声明必须可用，因为所有参数都不依赖于模板参数
-d:\gitspace\learn\learn\main.cpp(136): error C2672: “Add”: 未找到匹配的重载函数
-d:\gitspace\learn\learn\main.cpp(136): error C2893: 未能使函数模板“unknown-type Add(const T &,const U &)”专用化
-  d:\gitspace\learn\learn\main.cpp(136): note: 用下列模板参数:
-  d:\gitspace\learn\learn\main.cpp(136): note: “T=vec2i”
-  d:\gitspace\learn\learn\main.cpp(136): note: “U=vec2i”
-d:\gitspace\learn\learn\main.cpp(138): error C2672: “Add”: 未找到匹配的重载函数
-d:\gitspace\learn\learn\main.cpp(138): error C2893: 未能使函数模板“unknown-type Add(const T &,const U &)”专用化
-  d:\gitspace\learn\learn\main.cpp(138): note: 用下列模板参数:
-  d:\gitspace\learn\learn\main.cpp(138): note: “T=vec2i”
-  d:\gitspace\learn\learn\main.cpp(138): note: “U=vec2f”
-d:\gitspace\learn\learn\main.cpp(140): error C2672: “Add”: 未找到匹配的重载函数
-d:\gitspace\learn\learn\main.cpp(140): error C2893: 未能使函数模板“unknown-type Add(const T &,const U &)”专用化
-  d:\gitspace\learn\learn\main.cpp(140): note: 用下列模板参数:
-  d:\gitspace\learn\learn\main.cpp(140): note: “T=vec2f”
-  d:\gitspace\learn\learn\main.cpp(140): note: “U=vec2f”
+d:\gitspace\learn\learn\main.cpp(40): warning C4101: “v”: 未引用的局部变量
+d:\gitspace\learn\learn\main.cpp(38): warning C4101: “x”: 未引用的局部变量
+  Learn.vcxproj -> D:\GitSpace\Learn\x64\Debug\Learn.exe
