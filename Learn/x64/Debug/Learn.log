@@ -1,10 +1,12 @@
 ﻿  main.cpp
-d:\gitspace\learn\learn\main.cpp(31): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
-d:\gitspace\learn\learn\main.cpp(31): error C2143: 语法错误: 缺少“,”(在“&”的前面)
-d:\gitspace\learn\learn\main.cpp(33): error C2065: “v”: 未声明的标识符
-d:\gitspace\learn\learn\main.cpp(34): error C2065: “v”: 未声明的标识符
-d:\gitspace\learn\learn\main.cpp(112): error C2679: 二进制“=”: 没有找到接受“vec2i”类型的右操作数的运算符(或没有可接受的转换)
-  d:\gitspace\learn\learn\main.cpp(38): note: 可能是“vec2f &vec2f::operator =(vec2f &&)”
-  d:\gitspace\learn\learn\main.cpp(38): note: 或    “vec2f &vec2f::operator =(const vec2f &)”
-  d:\gitspace\learn\learn\main.cpp(31): note: 或    “const vec2f &vec2f::operator =(const int)”
-  d:\gitspace\learn\learn\main.cpp(112): note: 尝试匹配参数列表“(vec2f, vec2i)”时
+d:\gitspace\learn\learn\main.cpp(76): warning C4244: “初始化”: 从“const T”转换到“int”，可能丢失数据
+          with
+          [
+              T=double
+          ]
+d:\gitspace\learn\learn\main.cpp(76): warning C4244: “初始化”: 从“const T”转换到“int”，可能丢失数据
+          with
+          [
+              T=double
+          ]
+  Learn.vcxproj -> D:\GitSpace\Learn\x64\Debug\Learn.exe

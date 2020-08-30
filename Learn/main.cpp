@@ -3,100 +3,125 @@
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
 //Test vec.
 
+#define Int int
+#define Float double
+
 template<typename T>
 class vec2
 {
 public:
-	T x,y;
+	T x, y;
 public:
-	vec2() : x(0), y(0) {}
-	vec2(const T& _x, const T& _y) : x(_x), y(_y) {}
-	vec2(const T& n) : x(n), y(n) {}
-};
-
-class vec2f : public vec2<float>
-{
-public:
-	vec2f() : vec2<float>() {}
-	template<typename T>
-	vec2f(const T& _x, const T& _y) : vec2<float>(_x, _y) {}
-	//template<typename T>
-	//vec2f(const T& n) : vec2<float>(n) {}
-
-	//template<typename T>
-	//vec2f(const T& v) : vec2<float>(v.x, v.y) {}
-
-	//vec2f(const vec2i& v) : vec2<float>(n) {}
-
-	const vec2f& operator=(const vec2i& v)
+	vec2() :x(0.0), y(0.0) {}
+	vec2(const vec2<T>& v) : x(v.x), y(v.y) {}
+	vec2(vec2<T>&& v) : x(v.x), y(v.y) {}
+	vec2<T>& operator=(const vec2<T>& v)
 	{
 		x = v.x;
 		y = v.y;
 		return *this;
 	}
-
-};
-
-class vec2i : public vec2<int>
-{
-public:
-	vec2i() : vec2<int>() {}
-	vec2i(const int& _x, const int& _y) : vec2<int>(_x,_y){}
-	explicit vec2i(const vec2f& v)
-	{
-		x = static_cast<int>(v.x);
-		y = static_cast<int>(v.y);
-	}
-
-	const vec2i& operator=(const vec2i& v)
+	vec2<T>& operator=(vec2<T>&& v)
 	{
 		x = v.x;
 		y = v.y;
+		return *this;
 	}
+	~vec2() {}
+public:
+	vec2(const T& n) : x(n), y(n) {}
+	vec2(const T& _x, const T& _y) : x(_x), y(_y) {}
+
+	template<typename U>
+	const vec2<T>(const vec2<U>& v) : x(v.x), y(v.y) {}
+
+public:
+	T& operator[](const T& idx)
+	{
+		//CHECK(idx >= 0 && idx <= 1, "The <idx> in vec2<T>::operator[idx] is illegal!");
+		return idx == 0 ? x : y;
+	}
+public:
 };
 
+template<>
+class vec2<Int>
+{
+public:
+	Int x, y;
+public:
+	vec2() :x(0), y(0) {}
+	vec2(const vec2<Int>& v) : x(v.x), y(v.y) {}
+	vec2(vec2<Int>&& v) : x(v.x), y(v.y) {}
+	const vec2<Int>& operator=(const vec2<Int>& v)
+	{
+		x = v.x;
+		y = v.y;
+		return *this;
+	}
+	const vec2<Int>& operator=(vec2<Int>&& v)
+	{
+		x = v.x;
+		y = v.y;
+		return *this;
+	}
+	~vec2() {}
+public:
+	vec2(const Int& n) : x(n), y(n) {}
+	vec2(const Int& _x, const Int& _y) : x(_x), y(_y) {}
 
+	vec2(const Float& n) = delete;
+	vec2(const Float& _x, const Float& _y) = delete;
 
-const vec2f& operator+(const vec2i& v0, const vec2f& v1)
-{
-	return vec2f(v0.x + v1.x, v1.y + v1.y);
-}
-const vec2f& operator+(const vec2f& v0, const vec2i& v1)
-{
-	return vec2f(v0.x + v1.x, v0.y + v1.y);
-}
-template<typename T>
-const vec2f& operator+(const T& n, const vec2f& v)
-{
-	return vec2f(n + v.x, n + v.y);
-}
-template<typename T>
-const vec2f& operator+(const vec2f& v, const T& n)
-{
-	return vec2f(v.x + n, v.y + n);
-}
-const vec2f& operator+(const vec2i& v, const float& n)
-{
-	return vec2f(v.x + n, v.y + n);
-}
-const vec2f& operator+(const float& n, const vec2i& v)
-{
-	return vec2f(v.x + n, v.y + n);
-}
+	explicit vec2(const vec2<Float>& v) : x(v.x), y(v.y) {}
 
-const vec2i& operator+(const vec2i& v0, const vec2i& v1)
-{
-	return vec2i(v0.x + v1.x, v1.y + v1.y);
-}
-const vec2i& operator+(const int& n, const vec2i& v)
-{
-	return vec2i(v.x + n, v.y + n);
-}
-const vec2i& operator+(const vec2i& v, const int& n)
-{
-	return vec2i(v.x + n, v.y + n);
-}
+public:
+	Int& operator[](const Int& idx)
+	{
+		//CHECK(idx >= 0 && idx <= 1, "The <idx> in vec2<T>::operator[idx] is illegal!");
+		return idx == 0 ? x : y;
+	}
+public:
 
+};
+
+//template<>
+//class vec2<Float>
+//{
+//public:
+//	Float x, y;
+//public:
+//	vec2() :x(0.0), y(0.0) {}
+//	vec2(const vec2<Float>& v) : x(v.x), y(v.y) {}
+//	vec2(vec2<Float>&& v) : x(v.x), y(v.y) {}
+//	vec2<Float>& operator=(const vec2<Float>& v)
+//	{
+//		x = v.x;
+//		y = v.y;
+//		return *this;
+//	}
+//	vec2<Float>& operator=(vec2<Float>&& v)
+//	{
+//		x = v.x;
+//		y = v.y;
+//		return *this;
+//	}
+//	~vec2() {}
+//public:
+//	vec2(const Float& n) : x(n), y(n) {}
+//	vec2(const Float& _x, const Float& _y) : x(_x), y(_y) {}
+//public:
+//	Float& operator[](const Int& idx)
+//	{
+//		//CHECK(idx >= 0 && idx <= 1, "The <idx> in vec2<T>::operator[idx] is illegal!");
+//		return idx == 0 ? x : y;
+//	}
+//public:
+//
+//};
+
+typedef vec2<Int> vec2i;
+typedef vec2<Float> vec2f;
 
 int main()
 {
@@ -106,8 +131,8 @@ int main()
 	const vec2i ci;
 	const vec2f cf;
 	
-	float in = 0;
-	float fn = 0.0f;
-
+	Int in = 0;
+	Float fn = 0.0f;
 	f = i;
+	i = f;
 }
