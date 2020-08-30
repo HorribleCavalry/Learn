@@ -20,14 +20,20 @@ public:
 	vec2f() : vec2<float>() {}
 	template<typename T>
 	vec2f(const T& _x, const T& _y) : vec2<float>(_x, _y) {}
-	template<typename T>
-	vec2f(const T& n) : vec2<float>(n) {}
+	//template<typename T>
+	//vec2f(const T& n) : vec2<float>(n) {}
 
-	template<typename T>
-	vec2f(const T& n) : vec2<float>(n.x, n.y) {}
+	//template<typename T>
+	//vec2f(const T& v) : vec2<float>(v.x, v.y) {}
 
 	//vec2f(const vec2i& v) : vec2<float>(n) {}
 
+	const vec2f& operator=(const vec2i& v)
+	{
+		x = v.x;
+		y = v.y;
+		return *this;
+	}
 
 };
 
@@ -57,7 +63,7 @@ const vec2f& operator+(const vec2i& v0, const vec2f& v1)
 }
 const vec2f& operator+(const vec2f& v0, const vec2i& v1)
 {
-	return vec2f(v0.x + v1.x, v1.y + v1.y);
+	return vec2f(v0.x + v1.x, v0.y + v1.y);
 }
 template<typename T>
 const vec2f& operator+(const T& n, const vec2f& v)
@@ -97,11 +103,11 @@ int main()
 	vec2i i;
 	vec2f f;
 
-	const vec2i i;
-	const vec2f f;
+	const vec2i ci;
+	const vec2f cf;
 	
 	float in = 0;
 	float fn = 0.0f;
 
-	auto temp = (f = i);
+	f = i;
 }
