@@ -85,6 +85,11 @@ public:
 
 };
 
+template<typename T, typename U>
+auto Add(const T& v0, const U& v1) ->decltype(v0+v1)
+{
+	return vec2(v0.x + v1.x, v0.y + v1.y);
+}
 //template<>
 //class vec2<Float>
 //{
@@ -127,12 +132,10 @@ int main()
 {
 	vec2i i;
 	vec2f f;
-
-	const vec2i ci;
-	const vec2f cf;
-	
-	Int in = 0;
-	Float fn = 0.0f;
-	f = i;
-	i = f;
+	//result0 should be vec2<int>
+	auto result0 = Add(i, i);
+	//result1 should be vec2<float>
+	auto result1 = Add(i, f);
+	//result2 should be vec2<float>
+	auto result2 = Add(f, f);
 }
