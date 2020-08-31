@@ -44,10 +44,30 @@ public:
 	Person(const char&_c) : Person(c, 0, 0.0f) {}
 };
 
+template<typename T>
+class vec2
+{
+public:
+	T x, y;
+public:
+	vec2(const T& _x, const T& _y) : x(_x), y(_y) {}
+};
+
+template<typename T, typename U>
+const vec2<float> Add(const vec2<T>& v0, const vec2<U>& v1)
+{
+	return vec2<float>(v0.x, +v1.x, v0.y + v1.y);
+}
+
+template<typename T>
+const vec2<T> Add(const vec2<T>& v0, const vec2<T>& v1)
+{
+	return vec2<T>(v0.x, +v1.x, v0.y + v1.y);
+}
+
 int main()
 {
 	X<int> x;
 	//I really don't know what is _F.
 	X<int>::Y::_F v;
-	
 }
