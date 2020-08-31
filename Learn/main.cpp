@@ -33,6 +33,17 @@ template<typename T> struct X
 	typedef B<int>::type _J;
 };
 
+class Person
+{
+public:
+	char c;
+	int i;
+	float f;
+public:
+	Person(const char& _c, const int& _i, const float& _f) : c(_c), i(_i), f(_f) {}
+	Person(const char&_c) : Person(c, 0, 0.0f) {}
+};
+
 int main()
 {
 	X<int> x;
