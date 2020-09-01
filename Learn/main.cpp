@@ -3,46 +3,30 @@
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
 //
 
-struct A
-{
-
-};
-template<typename T> struct B
-{
-	typedef T type;
-};
-template<typename T> struct X
-{
-	typedef X<T> _A;
-	typedef X _B;
-	typedef T _C;
-
-	class Y
-	{
-	public:
-		typedef X<T> _D;
-		typedef X<T>::Y _E;
-
-		typedef typename X<T*>::Y _F;
-	};
-
-	typedef A _G;
-	typedef B<T> _H;
-
-	typedef typename B<T>::type _I;
-	typedef B<int>::type _J;
-};
-
+template<typename T>
 class Person
 {
-public:
-	char c;
-	int i;
-	float f;
-public:
-	Person(const char& _c, const int& _i, const float& _f) : c(_c), i(_i), f(_f) {}
-	Person(const char&_c) : Person(c, 0, 0.0f) {}
 };
+
+template<>
+class Person<int>
+{
+
+};
+
+template<>
+class Person<float>
+{
+
+};
+
+//I dont't know why it not work.
+
+//template<>
+//class Person<int, int>
+//{
+//
+//};
 
 template<typename T>
 class vec2
@@ -67,7 +51,8 @@ const vec2<T> Add(const vec2<T>& v0, const vec2<T>& v1)
 
 int main()
 {
-	X<int> x;
-	//I really don't know what is _F.
-	X<int>::Y::_F v;
+	Person<int> p0;
+	Person<float> p1;
+	//It can not work, I don't know why.
+	//Person<int, int> p2;
 }
