@@ -3,7 +3,7 @@
 //Referenced: https://github.com/wuye9036/CppTemplateTutorial
 //
 
-template<typename T>
+template<typename T, typename... Ts>
 class Person
 {
 };
@@ -20,13 +20,12 @@ class Person<float>
 
 };
 
-//I dont't know why it not work.
-
-//template<>
-//class Person<int, int>
-//{
-//
-//};
+template<typename U>
+class Person<U*>
+{
+public:
+	U test;
+};
 
 template<typename T>
 class vec2
@@ -53,6 +52,8 @@ int main()
 {
 	Person<int> p0;
 	Person<float> p1;
+	Person<float*> p2;
+	
 	//It can not work, I don't know why.
 	//Person<int, int> p2;
 }
