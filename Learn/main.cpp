@@ -49,7 +49,15 @@ const vec2<T> Add(const vec2<T>& v0, const vec2<T>& v1)
 {
 	return vec2<T>(v0.x, +v1.x, v0.y + v1.y);
 }
-template<typename T, bool isFloat = std::is_floating_point<T>::value, bool isInt = std::is_integral<T>::value>
+
+template<typename T>
+T DustomDivide(const T& a, const T& b)
+{
+	T v;
+	return v;
+}
+
+template<typename T, typename Enable = std::true_type>
 struct SafeDivide
 {
 	static void Do(const T&a, const T& b)
@@ -59,7 +67,7 @@ struct SafeDivide
 };
 
 template<typename T>
-struct SafeDivide<T,true,false>
+struct SafeDivide<T,typename std::is_floating_point<T>::type>
 {
 	static T Do(const T a, const T b)
 	{
@@ -69,7 +77,7 @@ struct SafeDivide<T,true,false>
 };
 
 template<typename T>
-struct SafeDivide<T, false,true>
+struct SafeDivide<T, typename std::is_integral<T>::type>
 {
 	static T Do(const T a, const T b)
 	{
