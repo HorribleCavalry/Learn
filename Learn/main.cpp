@@ -30,27 +30,6 @@ public:
 };
 
 template<typename T>
-class vec2
-{
-public:
-	T x, y;
-public:
-	vec2(const T& _x, const T& _y) : x(_x), y(_y) {}
-};
-
-template<typename T, typename U>
-const vec2<float> Add(const vec2<T>& v0, const vec2<U>& v1)
-{
-	return vec2<float>(v0.x, +v1.x, v0.y + v1.y);
-}
-
-template<typename T>
-const vec2<T> Add(const vec2<T>& v0, const vec2<T>& v1)
-{
-	return vec2<T>(v0.x, +v1.x, v0.y + v1.y);
-}
-
-template<typename T>
 T DustomDivide(const T& a, const T& b)
 {
 	T v;
@@ -87,8 +66,30 @@ struct SafeDivide<T, typename std::is_integral<T>::type>
 	}
 };
 
+template<typename T>
+class vec2
+{
+public:
+	template<typename U, typename Enabled0 = std::true_type, typename Enabled1 = std::true_type>
+	static void call(const vec2<U>& rhs)
+	{
+		std::cout<<"In mother called.\n"
+	}
+
+	template<typename U>
+	static void call<U, typename std::is_floating_point<T>, typename std::is_integral<U>>(const vec2<U>& rhs)
+	{
+
+	}
+};
+
+//template<typename T>
+//void vec2<T>::call()
+
 int main()
 {
+	//std::is_integral
+
 	Person<int> p0;
 	Person<float> p1;
 	Person<float*> p2;
