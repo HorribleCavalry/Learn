@@ -66,26 +66,34 @@ struct SafeDivide<T, typename std::is_integral<T>::type>
 	}
 };
 
-template<typename T>
-class vec2
-{
-public:
-	template<typename U, typename Enabled0 = std::true_type, typename Enabled1 = std::true_type>
-	static void call(const vec2<U>& rhs)
-	{
-		std::cout<<"In mother called.\n"
-	}
-
-	template<typename U>
-	static void call<U, typename std::is_floating_point<T>, typename std::is_integral<U>>(const vec2<U>& rhs)
-	{
-
-	}
-};
+//template<typename T>
+//class vec2
+//{
+//public:
+//	template<typename U, typename Enabled0 = std::true_type, typename Enabled1 = std::true_type>
+//	static void call(const vec2<U>& rhs)
+//	{
+//		std::cout<<"In mother called.\n"
+//	}
+//
+//	template<typename U>
+//	static void call<U, typename std::is_floating_point<T>, typename std::is_integral<U>>(const vec2<U>& rhs)
+//	{
+//
+//	}
+//};
 
 //template<typename T>
 //void vec2<T>::call()
 
+class creation
+{
+public:
+	creation(unsigned long _id) : id(_id) {}
+	unsigned long id;
+	static const creation human;
+};
+const creation creation::human(1);
 int main()
 {
 	//std::is_integral
@@ -99,7 +107,7 @@ int main()
 	SafeDivide<float>::Do(1.0, 2.0);
 
 	SafeDivide<std::complex<float>>::Do({ 1.0f,2.0f }, { 1.0f,-2.0f });
-
+	std::cout << creation::human.id;
 	//It can not work, I don't know why.
 	//Person<int, int> p2;
 }
