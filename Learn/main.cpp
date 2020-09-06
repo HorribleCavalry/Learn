@@ -94,6 +94,23 @@ public:
 	static const creation human;
 };
 const creation creation::human(1);
+
+template<typename T>
+class vec4
+{
+public:
+	T x, y, z, w;
+public:
+	vec4(T _x, T _y, T _z, T _w)
+		:x(_x), y(_y), z(_z), w(_w)
+	{
+	}
+public:
+	vec4() : vec4(0, 0, 0, 0) {}
+	vec4(const vec4& v) : vec4(v.x, v.y, v.z, v.w) {}
+	vec4(vec4&& v) : vec4(v) {}
+};
+
 int main()
 {
 	//std::is_integral
@@ -108,6 +125,10 @@ int main()
 
 	SafeDivide<std::complex<float>>::Do({ 1.0f,2.0f }, { 1.0f,-2.0f });
 	std::cout << creation::human.id;
+
+	vec4<float> vl;
+	vec4<float> v(vl);
+
 	//It can not work, I don't know why.
 	//Person<int, int> p2;
 }
