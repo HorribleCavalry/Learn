@@ -297,6 +297,26 @@ const Mat4x4<T> operator+(const Mat4x4<T>& mat0, const Mat4x4<T>& mat1)
 	return result;
 }
 
+template<typename T>
+class vec2
+{
+public:
+	T x, y;
+public:
+	vec2() : x(0), y(0) {}
+	vec2(const vec2& v) : x(v.x), y(v.y) {}
+	~vec2() {}
+public:
+
+	const vec2& operator=(const vec2<int>& v)
+	{
+		x = v.x;
+		y = v.y;
+		return *this;
+	}
+
+};
+
 int main()
 {
 	//std::is_integral
@@ -320,4 +340,14 @@ int main()
 	//LogData(mt0 + mt1);
 	//It can not work, I don't know why.
 	//Person<int, int> p2;
+
+	vec2<int> vi;
+	vec2<int> vi1;
+	vec2<float> vf;
+	vec2<float> vf2;
+	vf = vf2;
+	vf = vi;
+	//vi = vf;
+	vi = vi1;
+
 }

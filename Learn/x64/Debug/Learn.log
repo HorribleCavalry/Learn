@@ -1,5 +1,26 @@
 ﻿  main.cpp
-d:\gitspace\learn\learn\main.cpp(294): warning C4101: “p0”: 未引用的局部变量
-d:\gitspace\learn\learn\main.cpp(295): warning C4101: “p1”: 未引用的局部变量
-d:\gitspace\learn\learn\main.cpp(296): warning C4101: “p2”: 未引用的局部变量
+d:\gitspace\learn\learn\main.cpp(324): warning C4101: “p0”: 未引用的局部变量
+d:\gitspace\learn\learn\main.cpp(325): warning C4101: “p1”: 未引用的局部变量
+d:\gitspace\learn\learn\main.cpp(326): warning C4101: “p2”: 未引用的局部变量
+d:\gitspace\learn\learn\main.cpp(313): warning C4244: “=”: 从“const T”转换到“T”，可能丢失数据
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  d:\gitspace\learn\learn\main.cpp(312): note: 编译 类 模板 成员函数 "const vec2<float> &vec2<float>::operator =(const vec2<int> &)" 时
+  d:\gitspace\learn\learn\main.cpp(349): note: 参见对正在编译的函数 模板 实例化“const vec2<float> &vec2<float>::operator =(const vec2<int> &)”的引用
+  d:\gitspace\learn\learn\main.cpp(346): note: 参见对正在编译的 类 模板 实例化 "vec2<float>" 的引用
+d:\gitspace\learn\learn\main.cpp(314): warning C4244: “=”: 从“const T”转换到“T”，可能丢失数据
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
   Learn.vcxproj -> D:\GitSpace\Learn\x64\Debug\Learn.exe
