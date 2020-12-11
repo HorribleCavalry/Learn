@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SourceCode">
+      <UniqueIdentifier>{b66822ba-f5e8-4aa4-b797-f12785e7bd6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceCode\CAVSTL">
+      <UniqueIdentifier>{84add6e7-b2f7-4033-9026-ef9730bef8d4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SourceCode\main.cpp">
+      <Filter>SourceCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\CAVSTL\allocator.cpp">
+      <Filter>SourceCode\CAVSTL</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SourceCode\CAVSTL\allocator.h">
+      <Filter>SourceCode\CAVSTL</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
