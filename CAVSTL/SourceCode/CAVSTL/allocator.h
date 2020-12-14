@@ -1,4 +1,4 @@
-#ifndef __ALLOCATOR__
+﻿#ifndef __ALLOCATOR__
 #define __ALLOCATOR__
 
 #include <new>
@@ -9,10 +9,11 @@
 
 namespace CAVSTD
 {
+
 	template<typename T>
 	inline T* _allocate(ptrdiff_t size, T*)
 	{
-		std::set_new_handler(0);
+		std::set_new_handler(nullptr);
 		T* temp = (T*)(::operator new((size_t)(size * sizeof(T))));
 
 		if (!temp)
@@ -45,6 +46,8 @@ namespace CAVSTD
 		{
 			return _allocate((difference_type)n, (pointer)nullptr);
 		}
+
+		void deallocate(pointer p, size_type n) {}
 
 	public:
 		//allocator();
