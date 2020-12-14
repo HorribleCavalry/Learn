@@ -1,29 +1,37 @@
 ﻿#include <iostream>
-#include <new>
+#include <initializer_list>
 
-//This function will run when called std::set_new_handler(handler) and memory allocation failed.
-void handler()
+
+template<typename T>
+class Test
 {
-	std::cout << "Memory allocation failed, terminating\n";
-	std::set_new_handler(nullptr);
+public:
+	T a;
+public:
+	friend const std::ostream& operator<<(const std::ostream& os, const Test& test)
+	{
+		os << a << std::endl;
+		return os;
+	}
+};
+
+template<typename T>
+void processUndefinedLengthParam(const std::initializer_list<T>& params)
+{
+	for (auto element : params)
+	{
+		std::cout << element << std::endl;
+	}
 }
 
 int main()
 {
-	std::cout << "Hello world!";
 
-	std::set_new_handler(handler);
+	Test<int> te1;
+	te1.a = 10;
 
-	try
-	{
-		while (true)
-		{
-			new int[100000000ul];
-		}
-	}
-	catch (const std::bad_alloc& e)
-	{
-		std::cout << e.what();
-	}
+	Test<int> te2;
+	te2.a = 10;
 
+	processUndefinedLengthParam<Test>(te1, te2);
 }
